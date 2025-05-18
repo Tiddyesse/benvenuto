@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cacone.css">
+    <title>Tiddyesse?</title>
+    <link rel="icon" type="image/x-icon" href="logo-occhio.ico">
+</head>
+<body>
+    <div id="immagini"> 
+        <img id="immagine" class="cacca" src="pdf 2.png" alt="immagine">
+        
+        <!-- Link con immagine su cui passa il mouse -->
+        <a id="pulsante" class="cacca" href="https://www.youtube.com/@ilsuoocchio" 
+           onmouseenter="playAudio()" 
+           onmouseleave="stopAudio()" 
+           target="_blank">
+            <img src="pdf 2.png" alt="immagine">
+        </a>
+
+        <!-- Elemento audio -->
+        <audio id="hoverSound" src="audio distorto.mp3" preload="auto"></audio>
+    </div>
+
+   <div id="startOverlay" onclick="enableSound()">
+  <div class="overlayText">Benvenuto/a, si consiglia l'uso di un computer.</div>
+</div>
+    <script>
+      const audio = document.getElementById("hoverSound");
+
+      function playAudio() {
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+      function stopAudio() {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+
+      let audioEnabled = false;
+
+    function enableSound() {
+         audioEnabled = true;
+        const overlay = document.getElementById("startOverlay");
+        overlay.classList.add("hide");
+}
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+};
+    </script>
+</body>
+</html>
